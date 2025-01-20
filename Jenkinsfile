@@ -1,9 +1,18 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18' // Specify the desired Node.js version
+        }
+    }
     stages {
-        stage('Debug Environment') {
+        stage('Install Dependencies') {
             steps {
-                sh 'env'
+                sh 'npm install'
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh 'npm test'
             }
         }
     }
