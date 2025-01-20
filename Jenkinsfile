@@ -1,30 +1,10 @@
 pipeline {
-
     agent any
-
-
     stages {
-
-        stage('Install Dependencies') {
-
+        stage('Debug Environment') {
             steps {
-
-                sh 'npm install'
-
+                sh 'env'
             }
-
         }
-
-        stage('Run Tests') {
-
-            steps {
-
-                sh 'npm test'
-
-            }
-
-        }
-
     }
-
 }
